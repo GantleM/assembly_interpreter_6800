@@ -36,6 +36,13 @@ Instruction set_instruction(char raw[]){
     char *token = strtok(raw, " ");
     if (token == NULL) return ins;
     ins.op = parse_op(token);
+
+    while((token = strtok(NULL, " ")) != NULL && ins.num_operands < MAX_OPERANDS){
+        strcpy(ins.operands[ins.num_operands], token);
+        ins.num_operands++;
+    }
+
+    return ins;
 }
 
 int main(int argc, char const *argv[])
