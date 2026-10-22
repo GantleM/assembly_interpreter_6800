@@ -1,0 +1,3 @@
+CLR A
+LDA A $0020
+ADD A $0021
